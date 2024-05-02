@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap");
+body {
+  font-family: "Ubuntu Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.scroll-watcher {
+  height: 10px;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background-color: aqua;
+  width: 100%;
+  scale: 0 1;
+  transform-origin: left;
+  animation: scroll-watcher linear;
+  animation-timeline: scroll(y);
+}
+
+article {
+  display: grid;
+  place-items: center;
+  position: relative;
+  height: auto;
+  overflow-x: clip;
+  padding-block: 30px;
+  margin-block-end: 30px;
+}
+
+@keyframes scroll-watcher {
+  to {
+    scale: 1 1;
+  }
+}
+.img-hanna img {
+  width: auto;
+  height: 350px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .img-hanna {
+    opacity: 0;
+    scale: 0.8;
+    animation: fade-in linear forwards;
+    animation-timeline: view();
+    animation-range: entry 200px;
+  }
+
+  @keyframes fade-in {
+    to {
+      scale: 1;
+      opacity: 1;
+    }
+  }
+}
